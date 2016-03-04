@@ -1,0 +1,30 @@
+ <htlml>
+ <head>
+ <script language="javascript" type="text/javascript">
+	function sayHello(){
+		alert("hello")
+		}
+		
+		
+		<!--variable declare and assign local and global variable -->
+		var myVar ="global scope";
+		function checkScope(){
+			var myVar ="local scope";
+			document.write(myVar);
+		}
+		
+ </script>
+ <noscript>
+         Sorry...JavaScript is needed to go ahead.
+ </noscript>
+ <title>
+ </title>
+ </head>
+ <body>
+	<input type="button" onclick ="sayHello()" value="say Hello" />
+	
+	<input type="button" onclick ="checkScope()" value="scope" />
+  </body>
+ </html>
+ 
+ 
