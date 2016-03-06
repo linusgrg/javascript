@@ -1,0 +1,65 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+function printMe(){
+	alert(this);
+}
+var x=10;
+function noBlockScope(){
+	alert(x);//undefine
+	x=20;
+	if(x>0){
+	var x=30;//x hoisted
+	alert(x);
+	}
+	var x=40;
+	var f = function(x){ 
+		alert (x);
+		}
+		f(50);
+	
+}
+
+function scopeSecond() {
+var a = 1, b = 20, c;
+console.log(a + " " + b + " " + c); // 1 20 undefined
+// declares g (but doesn't call immediately!)
+function g() {
+var b = 300, c = 4000;
+console.log(a + " " + b + " " + c); // 1 300 4000
+a = a + b + c;
+console.log(a + " " + b + " " + c); // 4301 300 4000
+}
+console.log(a + " " + b + " " + c); // 1 20 undefined
+g();
+console.log(a + " " + b + " " + c); // 4301 20 undefined
+} 
+
+function scopeThird(){
+	for(var i=0; i<10; i++){
+	console.log(i);
+	}
+	
+	console.log(i);
+	if(i>5){
+	var j=3;
+	}
+	console.log(j);
+}
+
+</script></head>
+<title></title>
+<body>
+	<button onclick="printMe()">click me</button>
+	
+	<!--block scope in javascript -->
+	<button onclick ="noBlockScope()">BlockScope</button>
+	
+	<button onclick ="scopeSecond()">Scope Second</button>
+	
+	<!--lack of block scope 
+	Let keyword can be used for block scope-->
+	
+	<button onclick ="scopeThird()">Scope Third</button>
+</body>
+</html>
